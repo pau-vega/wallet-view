@@ -5,13 +5,14 @@
   "packageManager": "bun@1.2.10",
   "scripts": {
     "phoenix": "bunx rimraf .next && bunx rimraf node_modules && bun install && bun run dev",
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-slot": "^1.2.3",
     "@tanstack/react-query": "^5.83.0",
     "class-variance-authority": "^0.7.1",

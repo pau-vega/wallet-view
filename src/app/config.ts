@@ -1,15 +1,15 @@
 import { createConfig, http, cookieStorage, createStorage } from "wagmi";
-import { mainnet, sepolia } from "wagmi/chains";
+import { sepolia } from "wagmi/chains";
 
 export function getConfig() {
   return createConfig({
-    chains: [mainnet, sepolia],
+    chains: [sepolia],
     ssr: true,
     storage: createStorage({
       storage: cookieStorage,
     }),
+
     transports: {
-      [mainnet.id]: http(),
       [sepolia.id]: http(),
     },
   });
