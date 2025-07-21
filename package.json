@@ -2,8 +2,9 @@
   "name": "wallet-view",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "bun@1.2.10",
   "scripts": {
-    "phoenix": "rimraf .next && rimraf node_modules && npm install && npm run dev",
+    "phoenix": "bunx rimraf .next && bunx rimraf node_modules && bun install && bun run dev",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
