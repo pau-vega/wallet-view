@@ -25,7 +25,7 @@ export function WalletConnectedButton({
 
   return (
     <TooltipProvider>
-      <div className="flex items-center overflow-hidden rounded-full border p-1">
+      <div className="flex items-center justify-between overflow-hidden rounded-full border p-1">
         <Tooltip open={isCopied}>
           <TooltipTrigger asChild>
             <span
