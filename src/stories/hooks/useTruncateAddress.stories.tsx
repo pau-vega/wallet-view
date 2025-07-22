@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { useTruncateAddress } from "@/hooks/useTruncateAddress";
 
 // Component to demonstrate the hook

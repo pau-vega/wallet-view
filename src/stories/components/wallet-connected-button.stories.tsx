@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { WalletConnectedButton } from "@/components/wallet-connected-button";
 
 // Mock clipboard API for Storybook

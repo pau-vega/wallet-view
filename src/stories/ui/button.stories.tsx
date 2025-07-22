@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Button } from "@/components/ui/button";
 import { Wallet, Loader2, Plus } from "lucide-react";
 

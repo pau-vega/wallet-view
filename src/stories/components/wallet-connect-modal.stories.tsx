@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { WalletConnectModal } from "@/components/wallet-connect-modal";
 import type { Connector } from "wagmi";
 
