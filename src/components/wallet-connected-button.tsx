@@ -25,7 +25,7 @@ export function WalletConnectedButton({
 
   return (
     <TooltipProvider>
-      <div className="flex items-center justify-between overflow-hidden rounded-full border p-1">
+      <div className="flex w-fit items-center justify-between overflow-hidden rounded-md border p-1">
         <Tooltip open={isCopied}>
           <TooltipTrigger asChild>
             <span
@@ -42,7 +42,7 @@ export function WalletConnectedButton({
             </div>
           </TooltipContent>
         </Tooltip>
-        <Button size="icon" className="rounded-full" onClick={onDisconnect}>
+        <Button size="icon" className="rounded-md" onClick={onDisconnect}>
           <LogOut />
         </Button>
       </div>
