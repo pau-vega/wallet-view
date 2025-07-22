@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { WalletConnectedButton } from "@/components/wallet-connected-button";
+import { CopyWalletbutton } from "@/components/copy-wallet-button";
 
 // Mock clipboard API for Storybook
 if (typeof window !== "undefined") {
@@ -15,9 +15,9 @@ if (typeof window !== "undefined") {
   });
 }
 
-const meta: Meta<typeof WalletConnectedButton> = {
-  title: "Components/WalletConnectedButton",
-  component: WalletConnectedButton,
+const meta: Meta<typeof CopyWalletbutton> = {
+  title: "Components/CopyWalletButton",
+  component: CopyWalletbutton,
   parameters: {
     layout: "centered",
   },
@@ -27,9 +27,13 @@ const meta: Meta<typeof WalletConnectedButton> = {
       control: "text",
       description: "The wallet address to display and copy",
     },
-    onDisconnect: {
-      action: "disconnected",
-      description: "Callback function when disconnect button is clicked",
+    ensName: {
+      control: "text",
+      description: "ENS name to display in avatar tooltip",
+    },
+    ensAvatar: {
+      control: "text",
+      description: "ENS avatar URL to display",
     },
   },
 };
@@ -96,25 +100,16 @@ export const CopyInteraction: Story = {
 export const DifferentAddressFormats: Story = {
   render: () => (
     <div className="flex flex-col gap-4">
-      <WalletConnectedButton
-        address="0x1234567890abcdef1234567890abcdef12345678"
-        onDisconnect={() => console.log("Disconnect 1")}
-      />
-      <WalletConnectedButton
-        address="0xabcd1234efgh5678ijkl9012mnop3456"
-        onDisconnect={() => console.log("Disconnect 2")}
-      />
-      <WalletConnectedButton
-        address="0x1234567890abcdef"
-        onDisconnect={() => console.log("Disconnect 3")}
-      />
+      <CopyWalletbutton address="0x1234567890abcdef1234567890abcdef12345678" />
+      <CopyWalletbutton address="0xabcd1234efgh5678ijkl9012mnop3456" />
+      <CopyWalletbutton address="0x1234567890abcdef" />
     </div>
   ),
   parameters: {
     docs: {
       description: {
         story:
-          "Shows multiple wallet connected buttons with different address formats to demonstrate the truncation behavior.",
+          "Shows multiple wallet copy buttons with different address formats to demonstrate the truncation behavior.",
       },
     },
   },
@@ -134,18 +129,32 @@ export const CopyWithTooltip: Story = {
   },
 };
 
-export const WithCustomDisconnect: Story = {
+export const WithENSName: Story = {
   args: {
     address: "0x1234567890abcdef1234567890abcdef12345678",
-    onDisconnect: () => {
-      console.log("Custom disconnect handler");
-    },
+    ensName: "vitalik.eth",
+    ensAvatar: "https://github.com/shadcn.png",
   },
   parameters: {
     docs: {
       description: {
         story:
-          "Shows the component with a custom disconnect handler. Note: The disconnect functionality is handled by the parent component.",
+          "Shows the component with ENS name and avatar. Hover over the avatar to see the ENS name in a tooltip.",
+      },
+    },
+  },
+};
+
+export const WithENSOnly: Story = {
+  args: {
+    address: "0x1234567890abcdef1234567890abcdef12345678",
+    ensName: "alice.eth",
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Shows the component with ENS name but no avatar. The avatar fallback shows the first two characters of the address.",
       },
     },
   },
