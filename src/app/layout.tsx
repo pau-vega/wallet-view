@@ -40,9 +40,11 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${Tanker.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${Tanker.variable} ${geistSans.variable} ${geistMono.variable} bg-background antialiased`}
       >
-        <Providers initialState={initialState}>{children}</Providers>
+        <div className="mx-auto max-w-screen-lg">
+          <Providers initialState={initialState}>{children}</Providers>
+        </div>
       </body>
     </html>
   );
