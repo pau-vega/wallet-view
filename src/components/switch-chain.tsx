@@ -26,7 +26,7 @@ export function SwitchChain() {
       value={currentChain?.id.toString()}
       onValueChange={(value) => switchChain({ chainId: Number(value) })}
     >
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="text-foreground w-[180px]">
         <SelectValue placeholder={currentChain?.name} />
       </SelectTrigger>
       <SelectContent>
