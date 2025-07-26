@@ -1,10 +1,11 @@
 import { createConfig, http, cookieStorage, createStorage } from "wagmi";
-import { sepolia } from "wagmi/chains";
+import { mainnet, polygon, sepolia } from "wagmi/chains";
 import { walletConnect, metaMask } from "wagmi/connectors";
 
 // Create config once to prevent multiple initializations
 const config = createConfig({
-  chains: [sepolia],
+  chains: [sepolia, mainnet, polygon],
+  syncConnectedChain: true,
   ssr: true,
   storage: createStorage({
     storage: cookieStorage,
@@ -17,6 +18,8 @@ const config = createConfig({
   ],
   transports: {
     [sepolia.id]: http(),
+    [mainnet.id]: http(),
+    [polygon.id]: http(),
   },
 });
 

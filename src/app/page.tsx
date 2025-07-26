@@ -2,7 +2,7 @@ import { Header } from "@/components/header";
 
 export default function Home() {
   return (
-    <div className="grid min-h-dvh [grid-template-rows:auto_1fr_auto]">
+    <div className="bg-background grid min-h-dvh [grid-template-rows:auto_1fr_auto]">
       <header>
         <Header />
       </header>

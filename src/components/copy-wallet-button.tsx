@@ -26,7 +26,7 @@ export function CopyWalletbutton({
   const truncatedAddress = useTruncateAddress(address);
 
   return (
-    <div className="bg-background text-primary hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 inline-flex w-fit items-center justify-center gap-2 overflow-hidden rounded-full border shadow-xs transition-all">
+    <div className="text-primary hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 inline-flex w-fit items-center justify-center gap-2 overflow-hidden rounded-full border shadow-xs transition-all">
       <TooltipProvider key={ensName}>
         <Tooltip open={isCopied}>
           <TooltipTrigger asChild>

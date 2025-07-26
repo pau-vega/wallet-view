@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
+  --background: oklch(0.98 0.005 295);
   --foreground: oklch(0.3588 0.1354 278.6973);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.3588 0.1354 278.6973);
@@ -37,7 +37,7 @@
   --sidebar-border: oklch(0.9299 0.0334 272.7879);
   --sidebar-ring: oklch(0.6056 0.2189 292.7172);
   --font-sans: Roboto, sans-serif;
-  --font-serif: Playfair Display, serif;
+  --font-serif: Tanker, serif;
   --font-mono: Fira Code, monospace;
   --radius: 0.625rem;
   --shadow-2xs: 2px 2px 4px 0px hsl(255 86% 66% / 0.1);
@@ -96,7 +96,7 @@
   --sidebar-border: oklch(0.2827 0.1351 291.0894);
   --sidebar-ring: oklch(0.6056 0.2189 292.7172);
   --font-sans: Roboto, sans-serif;
-  --font-serif: Playfair Display, serif;
+  --font-serif: Tanker, serif;
   --font-mono: Fira Code, monospace;
   --radius: 0.625rem;
   --shadow-2xs: 2px 2px 4px 0px hsl(255 86% 66% / 0.1);
