@@ -15,8 +15,8 @@ import { normalize } from "viem/ens";
 import { LogOut, WalletIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { SwitchChain } from "./switch-chain";
-import { H1 } from "./ui/typography/H1";
 import Link from "next/link";
+import { Typography } from "./ui/typography";
 
 export function Header() {
   const { disconnect } = useDisconnect();
@@ -46,10 +46,13 @@ export function Header() {
   return (
     <div className="m-5 flex items-center justify-between gap-2 rounded-md border bg-white p-2 shadow-2xs">
       <Link href="/">
-        <H1 className="mx-4 flex items-center gap-2 text-xl">
+        <Typography
+          variant="h1"
+          className="mx-4 flex items-center gap-2 text-xl"
+        >
           Wallet View
           <WalletIcon className="size-6" />
-        </H1>
+        </Typography>
       </Link>
       <div className="flex items-center gap-2">
         <SwitchChain />
