@@ -28,7 +28,9 @@ export function WalletConnectModal({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Connect Wallet</Button>
+        <Button variant="outline" title="Connect Wallet">
+          Connect Wallet
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-sm">
         <DialogHeader>
