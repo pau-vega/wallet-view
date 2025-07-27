@@ -24,7 +24,8 @@ function TruncateAddressDemo({
       <div className="text-muted-foreground text-sm">Original: {address}</div>
       <div className="font-mono text-sm">Truncated: {truncated}</div>
       <div className="text-muted-foreground text-xs">
-        Config: start={startLength}, end={endLength}, separator="{separator}"
+        Config: start={startLength}, end={endLength}, separator=&quot;
+        {separator}&quot;
       </div>
     </div>
   );
