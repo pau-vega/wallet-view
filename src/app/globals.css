@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: "Tanker";
+  src: url("/fonts/Tanker-Regular.woff2") format("woff2");
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -36,9 +41,9 @@
   --sidebar-accent-foreground: oklch(0.4244 0.1809 265.6377);
   --sidebar-border: oklch(0.9299 0.0334 272.7879);
   --sidebar-ring: oklch(0.6056 0.2189 292.7172);
-  --font-sans: Roboto, sans-serif;
+  --font-sans: Geist, sans-serif;
   --font-serif: Tanker, serif;
-  --font-mono: Fira Code, monospace;
+  --font-mono: Geist Mono, monospace;
   --radius: 0.625rem;
   --shadow-2xs: 2px 2px 4px 0px hsl(255 86% 66% / 0.1);
   --shadow-xs: 2px 2px 4px 0px hsl(255 86% 66% / 0.1);
@@ -174,7 +179,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring/50 antialiased;
   }
   body {
     @apply bg-background text-foreground;

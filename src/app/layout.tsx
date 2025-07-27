@@ -4,7 +4,6 @@ import { Providers } from "./providers";
 import { cookieToInitialState } from "wagmi";
 import { getConfig } from "./config";
 import { headers } from "next/headers";
-import localFont from "next/font/local";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,11 +14,6 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const Tanker = localFont({
-  src: "../../public/Tanker_Complete/Fonts/WEB/fonts/Tanker-Regular.woff2",
-  variable: "--font-tanker",
 });
 
 export const metadata: Metadata = {
@@ -39,9 +33,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${Tanker.variable} ${geistSans.variable} ${geistMono.variable} bg-background antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div className="mx-auto max-w-screen-lg">
           <Providers initialState={initialState}>{children}</Providers>
         </div>

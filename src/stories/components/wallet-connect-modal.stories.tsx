@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { WalletConnectModal } from "@/components/wallet-connect-modal";
-import type { Connector } from "wagmi";
+import { Connector } from "wagmi";
 
 // Mock connectors for stories
 const mockConnectors = [
@@ -19,7 +19,7 @@ const mockConnectors = [
     name: "Coinbase Wallet",
     ready: true,
   },
-] as any[];
+] as unknown as Connector[];
 
 const meta: Meta<typeof WalletConnectModal> = {
   title: "Components/WalletConnectModal",
@@ -81,7 +81,7 @@ export const WithMultipleConnectors: Story = {
         name: "Trust Wallet",
         ready: true,
       },
-    ] as any[],
+    ] as unknown as Connector[],
     isPending: false,
     connectingConnector: null,
   },
@@ -100,7 +100,7 @@ export const WithUnreadyConnectors: Story = {
         name: "WalletConnect",
         ready: false,
       },
-    ] as any[],
+    ] as unknown as Connector[],
     isPending: false,
     connectingConnector: null,
   },
