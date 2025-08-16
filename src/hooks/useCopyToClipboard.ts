@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function useCopyToClipboard({
+export function useCopyToClipboard({
   timeout = 2000,
   onCopy,
 }: {
@@ -25,5 +25,3 @@ function useCopyToClipboard({
   };
   return { isCopied, copyToClipboard };
 }
-
-export { useCopyToClipboard };
