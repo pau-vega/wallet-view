@@ -1,0 +1,24 @@
+meta {
+  name: GetTokenFiatPricesByAddresses
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{host}}api/token/prices/:platformIds/:addresses?vs_currencies=eur,usd
+  body: none
+  auth: inherit
+}
+
+params:query {
+  vs_currencies: eur,usd
+}
+
+params:path {
+  platformIds: ethereum
+  addresses: 0x2260fac5e5542a773aa44fbcfedf7c193bc2c599
+}
+
+settings {
+  encodeUrl: true
+}
