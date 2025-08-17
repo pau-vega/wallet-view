@@ -1,9 +1,10 @@
-import { PlatformList } from "@/types/platform";
+import { Platform, PlatformList } from "@/types/platform";
 import { useCallback } from "react";
-import { useChains } from "wagmi";
+import { useChainId, useChains } from "wagmi";
 
 export function usePlatformApi() {
   const chains = useChains();
+  const chainId = useChainId();
 
   const getAllAvailablePlatforms =
     useCallback(async (): Promise<PlatformList> => {
@@ -12,5 +13,13 @@ export function usePlatformApi() {
       return response.json();
     }, [chains]);
 
-  return { getAllAvailablePlatforms };
+  const getCurrentPlatform = useCallback(async (): Promise<Platform> => {
+    let existingChainId = chainId;
+    if (chainId === 11155111 || chainId === 5) existingChainId = 1;
+
+    const response = await fetch(`/api/platform/${existingChainId}`);
+    return response.json();
+  }, [chainId]);
+
+  return { getAllAvailablePlatforms, getCurrentPlatform };
 }
