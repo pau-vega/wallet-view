@@ -44,7 +44,7 @@ export function Header() {
   };
 
   return (
-    <div className="m-5 flex items-center justify-between gap-2 rounded-md border bg-white p-2 shadow-2xs">
+    <div className="my-5 flex items-center justify-between gap-2 rounded-md border bg-white p-2 shadow-2xs">
       <Link href="/">
         <Typography
           variant="h1"
