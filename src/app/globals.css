@@ -185,3 +185,24 @@
     @apply bg-background text-foreground;
   }
 }
+@layer utilities {
+  .word-spacing-tight {
+    word-spacing: -0.05em;
+  }
+
+  .word-spacing-normal {
+    word-spacing: normal;
+  }
+
+  .word-spacing-wide {
+    word-spacing: 0.1em;
+  }
+
+  .word-spacing-wider {
+    word-spacing: 0.2em;
+  }
+
+  .word-spacing-widest {
+    word-spacing: 0.3em;
+  }
+}
