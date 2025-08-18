@@ -9,12 +9,17 @@ import { formatUnits } from "viem";
 import { cn } from "@/lib/utils";
 import { usePlatformApi } from "@/hooks/usePlatformApi";
 import { NumberTicker } from "./magicui/number-ticker";
+import { Card, CardContent } from "./ui/card";
 
 export function NativeTokenBalance() {
   const { address } = useAccount();
   const { getCurrentPlatform } = usePlatformApi();
 
   const { data: balance } = useBalance({ address });
+  const formattedBalance = useMemo(
+    () => balance && formatUnits(balance.value, balance.decimals).slice(0, -10),
+    [balance],
+  );
   const { getFiatPriceByPlatformId } = usePriceApi();
   const [price, setPrice] = useState<number>(0);
   const [priceVariationPercentage, setPriceVariationPercentage] =
@@ -43,24 +48,38 @@ export function NativeTokenBalance() {
   }, [getFiatPriceByPlatformId, getCurrentPlatform]);
 
   return (
-    <div>
-      <Typography variant="large" className="text-5xl">
-        {CURRENCY_SYMBOLS.USD}{" "}
-        <NumberTicker
-          value={nativeTokenBalance}
-          decimalPlaces={2}
-          className="text-5xl font-semibold"
-        />
-      </Typography>
-      <Typography
-        variant="small"
-        className={cn(
-          priceVariationPercentage > 0 ? "text-green-500" : "text-red-500",
-        )}
-      >
-        {priceVariationPercentage > 0 ? "+" : ""}
-        {priceVariationPercentage.toFixed(2)}%
-      </Typography>
-    </div>
+    <Card className="shadow-2xs">
+      <CardContent className="flex flex-col items-center justify-center gap-2">
+        <div className="flex items-center gap-2">
+          <Typography variant="large" className="font-normal">
+            Balance:
+          </Typography>
+          <Typography variant="large">
+            {formattedBalance} {balance?.symbol}
+          </Typography>
+        </div>
+        <div className="flex items-end gap-2">
+          <Typography variant="large" className="text-5xl">
+            {CURRENCY_SYMBOLS.USD}{" "}
+            <NumberTicker
+              value={nativeTokenBalance}
+              decimalPlaces={2}
+              className="text-5xl font-semibold"
+            />
+            <Typography
+              variant="small"
+              className={cn(
+                priceVariationPercentage > 0
+                  ? "text-green-500"
+                  : "text-red-500",
+              )}
+            >
+              {priceVariationPercentage > 0 ? "+" : ""}
+              {priceVariationPercentage.toFixed(2)}% (24h)
+            </Typography>
+          </Typography>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
