@@ -1,0 +1,19 @@
+meta {
+  name: GetAssetsPlatformsList
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{host}}api/platforms/:chains
+  body: none
+  auth: inherit
+}
+
+params:path {
+  chains: 137,1
+}
+
+settings {
+  encodeUrl: true
+}

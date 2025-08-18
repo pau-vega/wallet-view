@@ -1,4 +1,5 @@
 import { Header } from "@/components/header";
+import { NativeTokenBalance } from "@/components/native-token-balance";
 
 export default function Home() {
   return (
@@ -6,7 +7,9 @@ export default function Home() {
       <header>
         <Header />
       </header>
-      <main></main>
+      <main>
+        <NativeTokenBalance />
+      </main>
       <footer className="row-start-3 flex flex-wrap items-center justify-center gap-[24px]"></footer>
     </div>
   );
